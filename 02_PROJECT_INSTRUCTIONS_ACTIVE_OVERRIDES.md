@@ -1,7 +1,7 @@
 # Project Instructions — Active Overrides
 
 Status: active
-Version: 0.1.0
+Version: 0.2.0
 Applies to: current EV4 Architect Project Instructions until the master file is repackaged
 
 ---
@@ -78,7 +78,7 @@ The plan must identify:
 
 ## Knowledge Base / RAG Rule
 
-Elementor documentation, widget references, and future export evidence may support the pipeline, but must not replace it.
+Elementor documentation, widget references, internal concept references, and future export evidence may support the pipeline, but must not replace it.
 
 RAG may support:
 
@@ -101,6 +101,40 @@ platform capability ≠ project-specific behavior
 ```
 
 If documentation only proves that Elementor can do something, do not treat it as proof that the current section should use it.
+
+---
+
+## Internal Concept Reference Rule
+
+The file below is an active internal concept reference:
+
+```text
+knowledge/TUYA_ELEMENTOR_V4_CONCEPTS.md
+```
+
+Use it for:
+
+- EV4 thinking order;
+- shared Persian vocabulary;
+- normal-flow vs overlay discipline;
+- relative stage containment;
+- responsive inheritance caution;
+- design-system class/variable/component logic;
+- DOM/audit mindset.
+
+Do not use it as:
+
+- official Elementor platform documentation;
+- proof that a widget or setting exists;
+- proof that a current screenshot should use a specific architecture;
+- permission to skip Stage 2, 4, 5, or 6.
+
+Any fact retrieved from TUYA must be classified as:
+
+```text
+source_type: internal_concept_reference
+fact_class: project_conceptual_model
+```
 
 ---
 
