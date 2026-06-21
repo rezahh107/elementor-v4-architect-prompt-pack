@@ -1,9 +1,9 @@
 # STATUS — Elementor V4 Architect Prompt Pack
 
-Version: 0.7.0
+Version: 0.7.1
 Status: in_progress
-Last confirmed stage: Stage 6 — /recommend
-Current next stage: Stage 7 — /build-tree hardening
+Last confirmed stage: Stage 7 — /build-tree
+Current next stage: Stage 8 — /implementation hardening
 Language: Persian reports, English technical labels allowed
 
 ## Pipeline
@@ -35,7 +35,7 @@ Language: Persian reports, English technical labels allowed
 | /recommend | confirmed_hardened_v1.1.0_patch | Adds recommendation basis matrix, provenance ledger, strict tie handling, build-tree readiness gate, and debug record |
 | /stage-anchor-contract | active | contracts/STAGE_ANCHOR_CONTRACT.md added; all future stages must start from an anchor |
 | /debug-trace-contract | active | Model-readable external trace contract; no hidden chain-of-thought dependency |
-| /build-tree | draft_scaffolded | Stage 7 scaffold created; needs hardening |
+| /build-tree | confirmed_hardened_v1.0.0 | Final naming convention, Structure Panel tree schema, wrapper budget, widget constraints, responsive contract |
 | /implementation | draft_scaffolded | Stage 8 scaffold created; needs hardening |
 | /final-audit | draft_scaffolded | Stage 9 scaffold created; needs hardening |
 | /handoff-export | draft_scaffolded | Stage 10 scaffold created; needs hardening |
@@ -43,12 +43,14 @@ Language: Persian reports, English technical labels allowed
 ## Active Hardening / Contract Files
 
 - contracts/STAGE_ANCHOR_CONTRACT.md
+- contracts/BUILD_TREE_NAMING_AND_STRUCTURE_CONTRACT.md
 - diagnostics/LLM_DEBUG_TRACE_CONTRACT.md
 - stages/04_SCORE_EVIDENCE_v1.3_HARDENING_PATCH.md
 - stages/05_SCORE_AUDIT_v1.1_HARDENING_PATCH.md
 - stages/05_SCORE_AUDIT_v1.2_HARDENING_PATCH.md
 - stages/06_RECOMMEND.md
 - stages/06_RECOMMEND_v1.1_HARDENING_PATCH.md
+- stages/07_BUILD_TREE.md
 - examples/scoring/README.md
 - examples/scoring/SCORING-CAL-001-contradicted-evidence.md
 - examples/scoring/SCORING-CAL-002-absent-vs-contradicted.md
@@ -57,7 +59,6 @@ Language: Persian reports, English technical labels allowed
 
 ## Scaffolded Stage Files
 
-- stages/07_BUILD_TREE.md
 - stages/08_IMPLEMENTATION.md
 - stages/09_FINAL_AUDIT.md
 - stages/10_HANDOFF_EXPORT.md
@@ -105,6 +106,24 @@ It must:
 - emit `ev4-recommend-payload@1.1.0`;
 - emit `ev4-recommend-debug-record@1.0.0`.
 
+## Stage 7 v1.0 Notes
+
+Stage 7 is now the structural bridge between `/recommend` and `/implementation`.
+
+It must:
+
+- start from a valid Stage Anchor from `/recommend`;
+- use only the selected audited candidate;
+- produce an Elementor Structure Panel tree;
+- use human-readable `structure_label` values and machine-readable EV4 class names;
+- apply the naming convention `[section-role]__[content-group]--[variant]`;
+- keep meaningful content editable;
+- isolate overlays and decorations in named stages;
+- enforce a wrapper budget and justify extra wrappers;
+- produce a responsive structure contract without final CSS;
+- emit `ev4-build-tree-payload@1.0.0`;
+- emit the next Stage Anchor for `/implementation`.
+
 ## Debug Trace Contract Notes
 
 The debug trace layer is active as `diagnostics/LLM_DEBUG_TRACE_CONTRACT.md`.
@@ -124,4 +143,4 @@ This allows a model-language debugger to find the first broken stage and propose
 
 ## Current Next Step
 
-Harden Stage 7 — /build-tree, including final naming convention, wrapper budget, widget constraints, and Elementor Structure Panel tree contract.
+Harden Stage 8 — /implementation, including allowed output formats, scoped CSS boundaries, widget-by-widget implementation contract, asset handling, and implementation debug trace.
