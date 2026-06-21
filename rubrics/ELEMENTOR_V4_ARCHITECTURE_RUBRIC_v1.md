@@ -1,7 +1,7 @@
 # Elementor V4 — Architecture Scoring Rubric
 
-Version: 1.2  
-Status: confirmed_hardened_for_stage_4_v1.2.0  
+Version: 1.3  
+Status: confirmed_hardened_for_stage_4_v1.3.0  
 Scope: Elementor V4 architecture evaluation  
 Language: Persian reports, English technical labels allowed
 
@@ -30,25 +30,34 @@ The rubric prioritizes:
 
 For each candidate:
 
-1. Give each criterion a raw score from `1` to `5`, or `?` if evidence is insufficient.
+1. Give each criterion a raw score from `1` to `5`, `?`, or `N/A` only where explicitly allowed.
 2. Multiply each numeric raw score by its weight.
-3. If all 10 criteria are numeric, sum all weighted values to get `raw_weighted_total`.
-4. Normalize to `/100` using this formula:
+3. If any criterion is `?`, do not calculate a final normalized score. Mark the candidate as `incomplete`.
+4. If one or more criteria are `N/A`, exclude those weights from the denominator for that candidate.
+5. If all applicable criteria are numeric, calculate:
 
 ```text
+applicable_weight_total = 25 - Σ(weights of N/A criteria)
+applicable_raw_max = applicable_weight_total × 5
+normalized_total = (raw_weighted_total / applicable_raw_max) × 100
+```
+
+Default case when no criterion is `N/A`:
+
+```text
+applicable_weight_total = 25
+applicable_raw_max = 125
 normalized_total = (raw_weighted_total / 125) × 100
 ```
 
-Why `/125`?
+Rules:
 
-```text
-(5×4) + (5×4) + (5×4) + (5×3) + (5×2) + (5×2) + (5×2) + (5×2) + (5×1) + (5×1)
-= 125
-```
-
-Therefore decision bands are based on `normalized_total`, not the raw weighted total.
-
-If any criterion is `?`, do not calculate a final normalized score. Mark the candidate as `incomplete`.
+- Never treat the raw weighted total as `/100`.
+- Decision bands are based only on `normalized_total`.
+- `N/A` is not a bonus score.
+- `N/A` is not allowed unless the rubric explicitly permits it.
+- `?` means evidence is insufficient; `N/A` means the criterion is structurally non-applicable.
+- Do not compare candidates unless their final score status is complete and denominator handling is explicit.
 
 ---
 
@@ -57,9 +66,9 @@ If any criterion is `?`, do not calculate a final normalized score. Mark the can
 If any criterion is `?`, Stage 4 may show a provisional known-score only for orientation:
 
 ```text
-known_weighted_average_1_to_5 = Σ(known score × weight) / Σ(known weights)
+known_weighted_average_1_to_5 = Σ(known score × weight) / Σ(known applicable weights)
 provisional_known_percent = known_weighted_average_1_to_5 × 20
-known_weight_coverage = Σ(known weights) / 25
+known_weight_coverage = Σ(known applicable weights) / applicable_weight_total
 ```
 
 Rules:
@@ -83,12 +92,14 @@ Every criterion score must be labeled with one evidence state:
 | `ABSENT_EVIDENCE` | Source material does not say enough | Usually `?`; never contradiction by itself |
 | `CONTRADICTED_EVIDENCE` | Evidence conflicts with the candidate claim | Low score or gate failure |
 | `UNRESOLVED_CONFLICT` | Conflicting evidence cannot yet be resolved | `?` or capped at 2 |
+| `NON_APPLICABLE` | Criterion is structurally irrelevant by rubric rule | `N/A`; excluded from denominator |
 
 Core rule:
 
 ```text
 Absent evidence is not contradicted evidence.
 Contradicted evidence is not unknown evidence.
+Non-applicable is not excellent performance.
 ```
 
 ---
@@ -238,7 +249,17 @@ Are overlays/absolute elements contained inside a named relative stage?
 | 4 | Minor controlled overlay exception with clear reason |
 | 3 | Some overlays are section/body-relative; manageable risk |
 | 2 | Overlay containment is vague or collision-prone |
-| 1 | Overlay strategy is absent or uncontrolled |
+| 1 | Overlay strategy is absent or uncontrolled where overlays are required |
+| `N/A` | Stage 2 has no overlay, connector, floating, absolute, z-index, or decorative layer candidate and Stage 3 does not introduce one |
+
+N/A rule:
+
+```text
+If the section has no overlay candidates, Overlay Containment must be marked N/A, not 5.
+The ×2 weight is excluded from that candidate's denominator.
+N/A must use evidence_label: NON_APPLICABLE.
+If Stage 3 introduces overlay despite Stage 2 showing none, the criterion becomes applicable again.
+```
 
 ---
 
@@ -350,13 +371,14 @@ Incomplete candidates do not receive decision-band status.
 ## Notes for the Model
 
 - Do not recommend an architecture before full scoring and `/score-audit`.
-- Use only the Stage 4 v1.2 evidence labels.
+- Use only the Stage 4 v1.3 evidence labels.
 - If two architectures have close normalized totals, ×4 criteria are more important than low-weight visual precision.
 - Visual Precision is never a final decision reason by itself.
 - If evidence is insufficient for a criterion, mark it `?` and explain the missing evidence.
 - Do not convert unknowns into optimistic numeric scores.
 - Never compare incomplete candidates by numeric total or provisional known percent.
 - Hidden recommendation wording is a Stage 4 failure.
+- Use `N/A` only where the rubric explicitly permits it.
 
 ---
 
