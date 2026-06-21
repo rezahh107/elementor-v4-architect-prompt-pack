@@ -1,6 +1,6 @@
 # STATUS — Elementor V4 Architect Prompt Pack
 
-Version: 0.5.1
+Version: 0.5.2
 Status: in_progress
 Last confirmed stage: Stage 5 — /score-audit
 Current next stage: Stage 6 — /recommend
@@ -29,9 +29,9 @@ Language: Persian reports, English technical labels allowed
 | /decomposition-example-bank | active_enhanced | Pattern-based examples plus authoring standard |
 | /architectures | confirmed_hardened_v1.1.0 | Coverage matrix, unknown propagation, recommendation ban, dynamic guardrails |
 | /score-evidence | confirmed_hardened_v1.3.0_patch | Uses rubric 1.3 and Stage 4 v1.3 hardening patch |
-| /score-audit | confirmed_hardened_v1.1.0_patch | Uses Stage 5 v1.1 hardening patch |
+| /score-audit | confirmed_hardened_v1.2.0_patch | Adds Stage 5 self-audit, hidden recommendation guard, tie handoff, responsive cap reference binding |
 | /scoring-calibration-bank | active | examples/scoring calibration cases added |
-| /recommend | current_next | Depends on Stage 5 pass or pass_with_minor_flags |
+| /recommend | current_next | Depends on Stage 5 pass or pass_with_minor_flags and must run tie-break protocol if Stage 5 emits selection_ambiguity_flag |
 | /build-tree | not_started_requires_naming | Needs naming convention |
 | /implementation | not_started | Needs Elementor settings schema |
 | /final-audit | not_started | Needs checklist |
@@ -40,11 +40,22 @@ Language: Persian reports, English technical labels allowed
 
 - stages/04_SCORE_EVIDENCE_v1.3_HARDENING_PATCH.md
 - stages/05_SCORE_AUDIT_v1.1_HARDENING_PATCH.md
+- stages/05_SCORE_AUDIT_v1.2_HARDENING_PATCH.md
 - examples/scoring/README.md
 - examples/scoring/SCORING-CAL-001-contradicted-evidence.md
 - examples/scoring/SCORING-CAL-002-absent-vs-contradicted.md
 - examples/scoring/SCORING-CAL-003-arithmetic-needs-audit.md
 - examples/scoring/SCORING-CAL-004-overlay-na.md
+
+## Stage 5 v1.2 Notes
+
+Stage 5 now has these additional constraints before Stage 6:
+
+- It must audit its own audit report for hidden recommendation leakage.
+- It must keep candidate reporting neutral and avoid implied preference.
+- It must emit a tie handoff payload instead of breaking ties.
+- It must bind responsive inheritance audits to the authoritative Stage 4/rubric rule.
+- It must emit `ev4-score-audit-payload@1.2.0` when the v1.2 patch is active.
 
 ## Current Next Step
 
