@@ -1,9 +1,9 @@
 # STATUS — Elementor V4 Architect Prompt Pack
 
-Version: 0.6.1
+Version: 0.7.0
 Status: in_progress
 Last confirmed stage: Stage 6 — /recommend
-Current next stage: Stage 7 — /build-tree
+Current next stage: Stage 7 — /build-tree hardening
 Language: Persian reports, English technical labels allowed
 
 ## Pipeline
@@ -18,13 +18,14 @@ Language: Persian reports, English technical labels allowed
 8. /build-tree
 9. /implementation
 10. /final-audit
+11. /handoff-export
 
 ## Stage Status
 
 | Stage | Status | Notes |
 |---|---|---|
 | /intake | confirmed | Lightweight default-based intake |
-| /research | draft_required | Needs source policy |
+| /research | draft_required | Needs source policy and version-pinned source rules |
 | /decompose | confirmed_with_example_bank | Controlled Visual Role Decomposition with 12 examples |
 | /decomposition-example-bank | active_enhanced | Pattern-based examples plus authoring standard |
 | /architectures | confirmed_hardened_v1.1.0 | Coverage matrix, unknown propagation, recommendation ban, dynamic guardrails |
@@ -32,24 +33,48 @@ Language: Persian reports, English technical labels allowed
 | /score-audit | confirmed_hardened_v1.2.0_patch | Adds Stage 5 self-audit, hidden recommendation guard, tie handoff, responsive cap reference binding |
 | /scoring-calibration-bank | active | examples/scoring calibration cases added |
 | /recommend | confirmed_hardened_v1.1.0_patch | Adds recommendation basis matrix, provenance ledger, strict tie handling, build-tree readiness gate, and debug record |
+| /stage-anchor-contract | active | contracts/STAGE_ANCHOR_CONTRACT.md added; all future stages must start from an anchor |
 | /debug-trace-contract | active | Model-readable external trace contract; no hidden chain-of-thought dependency |
-| /build-tree | current_next_requires_naming | Needs naming convention and Elementor Structure Panel tree contract |
-| /implementation | not_started | Needs Elementor settings schema |
-| /final-audit | not_started | Needs checklist |
+| /build-tree | draft_scaffolded | Stage 7 scaffold created; needs hardening |
+| /implementation | draft_scaffolded | Stage 8 scaffold created; needs hardening |
+| /final-audit | draft_scaffolded | Stage 9 scaffold created; needs hardening |
+| /handoff-export | draft_scaffolded | Stage 10 scaffold created; needs hardening |
 
-## Active Hardening Files
+## Active Hardening / Contract Files
 
+- contracts/STAGE_ANCHOR_CONTRACT.md
+- diagnostics/LLM_DEBUG_TRACE_CONTRACT.md
 - stages/04_SCORE_EVIDENCE_v1.3_HARDENING_PATCH.md
 - stages/05_SCORE_AUDIT_v1.1_HARDENING_PATCH.md
 - stages/05_SCORE_AUDIT_v1.2_HARDENING_PATCH.md
 - stages/06_RECOMMEND.md
 - stages/06_RECOMMEND_v1.1_HARDENING_PATCH.md
-- diagnostics/LLM_DEBUG_TRACE_CONTRACT.md
 - examples/scoring/README.md
 - examples/scoring/SCORING-CAL-001-contradicted-evidence.md
 - examples/scoring/SCORING-CAL-002-absent-vs-contradicted.md
 - examples/scoring/SCORING-CAL-003-arithmetic-needs-audit.md
 - examples/scoring/SCORING-CAL-004-overlay-na.md
+
+## Scaffolded Stage Files
+
+- stages/07_BUILD_TREE.md
+- stages/08_IMPLEMENTATION.md
+- stages/09_FINAL_AUDIT.md
+- stages/10_HANDOFF_EXPORT.md
+
+## Stage Anchor Notes
+
+A Stage Anchor is now required before starting each stage after `/intake`.
+
+Purpose:
+
+- preserve critical unknowns;
+- preserve blockers and gate results;
+- prevent long-context drift;
+- keep handoffs compact and auditable;
+- avoid reliance on conversational memory alone.
+
+The anchor is not hidden chain-of-thought. It is an external structured handoff.
 
 ## Stage 5 v1.2 Notes
 
@@ -99,4 +124,4 @@ This allows a model-language debugger to find the first broken stage and propose
 
 ## Current Next Step
 
-Define Stage 7 — /build-tree, including naming convention and Elementor Structure Panel tree contract.
+Harden Stage 7 — /build-tree, including final naming convention, wrapper budget, widget constraints, and Elementor Structure Panel tree contract.
