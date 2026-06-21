@@ -1,7 +1,7 @@
 # Elementor Knowledge Base / RAG Strategy
 
 Status: draft_active
-Version: 0.1.0
+Version: 0.2.0
 Applies to: `/research`, `/architectures`, `/build-tree`, `/implementation`
 
 ---
@@ -57,18 +57,48 @@ The knowledge base may support:
 
 - verify whether a proposed architecture family is Elementor-native, widget-native, or custom/hybrid;
 - check whether a candidate depends on features that require Elementor Pro or third-party plugins;
-- identify documentation-backed constraints.
+- identify documentation-backed constraints;
+- use internal TUYA concepts to preserve the structure-first thinking order.
 
 ### `/build-tree`
 
 - map selected architecture concepts to plausible Elementor containers/widgets;
 - verify naming and structure against known Elementor concepts;
-- avoid inventing widgets or settings.
+- avoid inventing widgets or settings;
+- use TUYA concepts for Structure Panel clarity, relative stage containment, wrapper discipline, and class/variable strategy.
 
 ### `/implementation`
 
 - ground widget settings, responsive controls, asset handling, and scoped CSS boundaries;
-- distinguish documented behavior from project-specific implementation assumptions.
+- distinguish documented behavior from project-specific implementation assumptions;
+- use TUYA concepts as a conceptual checklist for structure → flow → size → position → responsive → design system → audit.
+
+---
+
+## Internal Concept Reference Layer
+
+The repository may include project-authored conceptual references, such as:
+
+```text
+knowledge/TUYA_ELEMENTOR_V4_CONCEPTS.md
+```
+
+This source class is useful for preserving the EV4 mental model, especially when the user wants reports and instructions in Persian.
+
+Rules:
+
+- Internal concept references may define project vocabulary, thinking order, and safe heuristics.
+- Internal concept references may not prove Elementor platform capability by themselves.
+- Internal concept references may not override official Elementor docs, exported Elementor evidence, project defaults, or user constraints.
+- Internal concept references should be classified as `project_conceptual_model`, not `official_docs`.
+
+Allowed use examples:
+
+```text
+Use TUYA to remember: content stays in normal flow; floating nodes live inside a relative visual stage.
+Use official Elementor docs to verify: Structure window behavior, container capabilities, responsive inheritance.
+Use export evidence to verify: exact runtime/project behavior.
+```
 
 ---
 
@@ -80,7 +110,8 @@ Preferred source classes:
 2. Version-pinned Elementor release notes when relevant.
 3. Verified exported Elementor JSON or real project exports, if available.
 4. Project defaults and EV4 contracts in this repository.
-5. User-provided implementation constraints.
+5. Internal concept references, including `knowledge/TUYA_ELEMENTOR_V4_CONCEPTS.md`.
+6. User-provided implementation constraints.
 
 Lower-trust sources may be used only as secondary context and must not override official docs, exports, or project rules.
 
@@ -93,6 +124,7 @@ Every retrieved fact must be classified as one of:
 ```text
 platform_capability
 project_default
+project_conceptual_model
 project_specific_behavior
 implementation_observation
 unsupported_claim
@@ -102,6 +134,7 @@ Rules:
 
 - `platform_capability` means Elementor can do something in general.
 - `project_default` means this project allows or disallows something.
+- `project_conceptual_model` means an internal EV4/TUYA concept guides reasoning but does not prove platform behavior.
 - `project_specific_behavior` means the current section/project has a confirmed requirement.
 - `implementation_observation` means real exported/runtime evidence confirms a behavior.
 - `unsupported_claim` means the model has no reliable source and must not treat it as fact.
@@ -115,7 +148,7 @@ A `/research` or RAG-supported stage should include:
 ```text
 RETRIEVED FACT
 - source_id:
-- source_type: official_docs | release_notes | export_evidence | project_contract | user_input | secondary_source
+- source_type: official_docs | release_notes | export_evidence | project_contract | internal_concept_reference | user_input | secondary_source
 - retrieved_claim:
 - applies_to_stage:
 - fact_class:
@@ -155,7 +188,8 @@ Do not use the knowledge base to:
 - select a final architecture before Stage 6;
 - bypass scoring or audit;
 - fabricate exact widget settings not present in docs or exports;
-- treat undocumented behavior as confirmed.
+- treat undocumented behavior as confirmed;
+- treat TUYA internal concepts as official Elementor platform documentation.
 
 ---
 
@@ -165,6 +199,7 @@ The knowledge base strategy is valid only if:
 
 - every retrieved fact has a source and fact class;
 - platform capability is not confused with project-specific behavior;
+- internal concept references are classified as conceptual guidance, not official capability proof;
 - docs support Stage 3/7/8 decisions but do not replace Stage 2/4/5/6;
 - unsupported claims become `unknown`, not implementation facts;
 - future export evidence is allowed to strengthen implementation grounding.
