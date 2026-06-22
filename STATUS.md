@@ -1,9 +1,9 @@
 # STATUS — Elementor V4 Architect Prompt Pack
 
-Version: 0.13.0
-Status: research_contract_hardened
-Last confirmed stage: Stage 2 — /research contract hardening
-Current next step: Harden `references/ELEMENTOR_KNOWLEDGE_BASE_RAG_STRATEGY.md` from `draft_active_v0.3.0` into an active v1.0.0 source-access contract aligned with `stages/02_RESEARCH.md`.
+Version: 0.14.0
+Status: rag_strategy_contract_hardened
+Last confirmed stage: Elementor Knowledge Base / RAG Strategy contract hardening
+Current next step: Harden `knowledge/TUYA_ELEMENTOR_V4_CONCEPTS.md` from `active_reference v0.2.0` into an active v1.0.0 internal concept reference contract aligned with `references/ELEMENTOR_KNOWLEDGE_BASE_RAG_STRATEGY.md` and `stages/02_RESEARCH.md`.
 Language: Persian reports, English technical labels allowed
 Last automation update: 2026-06-22
 
@@ -28,10 +28,10 @@ Last automation update: 2026-06-22
 
 ## Stage Status
 
-| Stage | Status | Notes |
+| Stage / Contract | Status | Notes |
 |---|---|---|
 | /intake | confirmed | Lightweight default-based intake |
-| /research | confirmed_hardened_v1.0.0 | Stage 2 research contract added with input gate, source access policy, source pinning, retrieval fact ledger, `ev4-research-payload@1.0.0`, downstream permission map, repair routes, self-audit, debug trace, and anchor handoff |
+| /research | confirmed_hardened_v1.0.0 | Stage 2 research contract with input gate, source access policy, source pinning, retrieval fact ledger, `ev4-research-payload@1.0.0`, downstream permission map, repair routes, self-audit, debug trace, and anchor handoff |
 | /decompose | confirmed_with_example_bank | Controlled Visual Role Decomposition with example bank; must not use research/RAG/TUYA/docs to invent visual groups |
 | /decomposition-example-bank | active_enhanced | Pattern-based examples plus authoring standard |
 | /architectures | confirmed_hardened_v1.1.0 | Coverage matrix, unknown propagation, recommendation ban, dynamic guardrails |
@@ -46,8 +46,8 @@ Last automation update: 2026-06-22
 | /implementation | confirmed_hardened_v1.0.0 | Stage 8 hardened with input gate, payload schema, source ledger, settings schema, widget map, class/variable map, scoped CSS validator, asset/accessibility map, responsive examples, repair routes, self-audit, debug trace, and anchor handoff |
 | /final-audit | confirmed_hardened_v1.0.0 | Stage 9 hardened with input gate, Source Access Matrix binding, severity taxonomy, audit checklists, repair routes, regression cases, Final_Audit_Payload schema, self-audit, debug trace, and anchor handoff |
 | /handoff-export | confirmed_hardened_v1.0.0 | Stage 10 hardened with input gate, Source Access Matrix binding, handoff eligibility matrix, blocked handoff report, payload ledger, audit-flag preservation, Handoff_Payload schema, repair anchor, self-audit, debug trace, and E2E release boundary |
-| /elementor-knowledge-base-strategy | draft_active_v0.3.0 | Next unfinished contract. Needs alignment with `/research`, versioned source pinning, downstream permission matrix, conflict lifecycle, and release-ready pass criteria |
-| /tuya-concept-reference | active_v0.2.0 | Adds provisional-to-contradicted transition rule and evidence reclassification behavior |
+| /elementor-knowledge-base-strategy | active_v1.0.0 | Hardened from `draft_active_v0.3.0` into `ev4-rag-strategy-contract@1.0.0`; now has current stage matrix, `/research` source-pinning ownership, source classes, source pins, retrieved fact schema, downstream permission defaults, freshness policy, EDIS boundary, conflict lifecycle, leakage probes, repair routes, self-audit, debug trace, and next anchor |
+| /tuya-concept-reference | active_reference_v0.2.0 | Next unfinished source-policy-adjacent contract. Needs alignment with RAG Strategy v1.0.0 and Research v1.0.0 source classification rules |
 | /e2e-test-plan | confirmed_hardened_v1.0.0 | Defines full-pipeline E2E scope, fixture contract, source-access checks, anchor validation, debug trace validation, negative controls, report schema, repair routing, and release-boundary rules |
 | /e2e-test | pass_with_minor_flags | E2E-001 completed through /handoff-export and produced `ev4-e2e-test-report@1.0.0`; textual fixture limitation remains as medium non-blocking flag |
 
@@ -83,9 +83,10 @@ Last automation update: 2026-06-22
 
 ---
 
-## Hardened Stage / Validation Files
+## Hardened Stage / Validation / Strategy Files
 
 - stages/02_RESEARCH.md
+- references/ELEMENTOR_KNOWLEDGE_BASE_RAG_STRATEGY.md
 - stages/08_IMPLEMENTATION.md
 - stages/09_FINAL_AUDIT.md
 - stages/10_HANDOFF_EXPORT.md
@@ -94,13 +95,62 @@ Last automation update: 2026-06-22
 
 ---
 
-## Scaffolded / Draft Work Remaining
+## Scaffolded / Draft / Validation Work Remaining
 
-- `references/ELEMENTOR_KNOWLEDGE_BASE_RAG_STRATEGY.md` remains `draft_active_v0.3.0` and is now the next highest-priority unfinished contract because `/research` depends on it as active policy input.
+- `knowledge/TUYA_ELEMENTOR_V4_CONCEPTS.md` remains `active_reference v0.2.0`; it is now the next highest-priority unfinished source-policy-adjacent contract because the active RAG Strategy depends on strict TUYA source classification.
 - E2E-001 used a realistic textual mockup, not a raster screenshot.
 - Pixel-accurate screenshot interpretation remains unvalidated by E2E-001.
 - Real Elementor export JSON / EDIS validation remains future work.
 - Live Elementor/browser rendering remains future work.
+
+---
+
+## RAG Strategy Contract Result
+
+```yaml
+RAG_STRATEGY_CONTRACT:
+  file: references/ELEMENTOR_KNOWLEDGE_BASE_RAG_STRATEGY.md
+  status: active_v1.0.0
+  version: 1.0.0
+  strategy_schema: ev4-rag-strategy-contract@1.0.0
+  aligned_with:
+    - stages/02_RESEARCH.md
+    - ev4-research-payload@1.0.0
+    - contracts/STAGE_ANCHOR_CONTRACT.md
+    - contracts/PARTIAL_RERUN_CONTRACT.md
+    - diagnostics/LLM_DEBUG_TRACE_CONTRACT.md
+  confirmed_capabilities:
+    - current pipeline Stage Source Access Matrix
+    - `/research` as source-pinning owner
+    - source class taxonomy
+    - source pin schema
+    - retrieved fact schema
+    - downstream permission defaults
+    - official source freshness policy
+    - EDIS/export evidence boundary
+    - conflict lifecycle
+    - unsupported claim and unknown policy
+    - forbidden leakage probes
+    - repair routes
+    - RAG strategy payload schema
+    - self-audit
+    - EV4 debug trace addendum
+    - NEXT WORK ANCHOR to `/tuya-concept-reference`
+```
+
+Strict boundary:
+
+```text
+RAG may ground platform capability claims.
+RAG must not infer screenshot content, select architecture, improve scores, break ties, soften final-audit defects, or clean up handoff risks.
+```
+
+Current stage-source correction:
+
+```text
+/research is Stage 2 and owns source pinning.
+/decompose is Stage 3 and must use only visible/provided evidence for visual grouping.
+```
 
 ---
 
@@ -133,12 +183,6 @@ Strict boundary:
 /research may prove or disprove platform capability.
 /research must not decide what the current screenshot visually contains.
 /research must not score, recommend, build, implement, or audit the section.
-```
-
-Critical downstream rule:
-
-```text
-/decompose may receive the Research_Payload as context, but it must not use RAG, TUYA, official docs, or research facts to invent visual groups, meaningful/decorative classification, or hidden screenshot content.
 ```
 
 ---
@@ -176,14 +220,6 @@ E2E_TEST_REPORT:
     - E2E001-LOW-002: exact icon source/library remains unknown
     - E2E001-LOW-003: animation requirement remains unknown
     - E2E001-LOW-004: dynamic dashboard data requirement remains unknown
-```
-
-E2E-001 selected architecture during the authorized `/recommend` stage:
-
-```yaml
-selected_candidate_id: A02_native_plus_scoped_decorative_css
-selected_candidate_family: native editable structure + section-scoped decorative CSS
-reason: highest audited eligible score, editable meaningful content, contained decorative connector/glow layer, no third-party dependency, no flattened dashboard content
 ```
 
 Release boundary interpretation:
@@ -237,35 +273,24 @@ It must first produce a `PARTIAL RERUN PLAN` that identifies:
 
 ## Knowledge Base / RAG Notes
 
-A structured Elementor knowledge base may support `/research`, `/architectures`, `/build-tree`, `/implementation`, and `/final-audit`.
-
-It must not replace the pipeline or skip `/decompose`, `/score-evidence`, `/score-audit`, or `/recommend`.
+A structured Elementor knowledge base may support `/research`, `/architectures`, `/build-tree`, `/implementation`, and `/final-audit`, but only within the active RAG Strategy v1.0.0 source-access matrix.
 
 Core distinction:
 
 ```text
-platform capability ≠ project-specific behavior
+platform_capability ≠ project-specific behavior
 ```
-
-Official documentation can prove Elementor can do something; it cannot by itself prove that the current section should use that thing.
-
-Future export evidence / EDIS may strengthen implementation grounding and final audit checks but must still pass through the pipeline.
-
-### Stage Source Access Matrix
-
-The RAG Strategy defines which sources each stage may use.
 
 Key gates:
 
-- Stage 2 `/research` retrieves and pins sources; it does not interpret the screenshot.
-- Stage 3 `/decompose` uses only image/user-provided evidence and must not use RAG to invent visual groups.
-- Stage 4 `/architectures` may use TUYA concepts and official docs to verify architecture feasibility.
-- Stage 5 `/score-evidence` must score from Rubric + Stage 3/4 evidence; TUYA/RAG cannot boost scores by themselves.
-- Stage 7 `/recommend` must recommend only from audited Stage 5/6 outputs; no new RAG preference signals.
-- Stage 8/9 may use TUYA + official docs to map approved architecture/tree decisions to structure and implementation.
-- Stage 10 may use Stage 9, Stage 8, Stage 7, Stage 6, Stage 5 constraints, TUYA audit concepts, official docs, and export evidence only to audit preservation and capability claims; it must not generate new architecture or implementation.
-- Stage 11 may use final audited outputs, debug traces, anchors, and payloads only to package the run; it must not change decisions.
-- E2E validation must check source-access compliance across every stage, especially `/decompose`, `/score-evidence`, `/recommend`, `/final-audit`, and `/handoff-export`.
+- `/research` retrieves and pins sources; it does not interpret screenshots.
+- `/decompose` uses only image/user-provided evidence and must not use RAG to invent visual groups.
+- `/architectures` may use TUYA concepts and official docs only to verify architecture feasibility.
+- `/score-evidence` must score from Rubric + Stage 3/4 evidence; TUYA/RAG cannot boost scores by themselves.
+- `/recommend` must recommend only from audited Stage 5/6 outputs; no new RAG preference signals.
+- `/build-tree`, `/implementation`, and `/final-audit` may use approved source facts only within their stage boundaries.
+- `/handoff-export` may package source ledgers and flags but must not change decisions.
+- `/e2e-test` must probe for RAG leakage across all stages.
 
 ---
 
@@ -273,32 +298,23 @@ Key gates:
 
 The TUYA workbook is treated as an internal conceptual reference, not as official Elementor documentation.
 
-Use `knowledge/TUYA_ELEMENTOR_V4_CONCEPTS.md` to preserve:
+Current TUYA file:
 
-- Global Thinking Order: `Context → Structure → Flow/Display → Size/Units → Position/Layering → Responsive → Design System → DOM/Audit`;
-- the `confirmed | provisional | unknown` thinking labels;
-- normal-flow content plus relative visual stage discipline;
-- responsive inheritance caution;
-- design-system class/variable/component logic;
-- performance and DOM/audit mindset.
+```yaml
+TUYA_CONCEPT_REFERENCE:
+  file: knowledge/TUYA_ELEMENTOR_V4_CONCEPTS.md
+  status: active_reference_v0.2.0
+  next_action: harden_to_v1.0.0
+```
 
-Any TUYA-derived fact must be classified as:
+Required classification:
 
 ```text
 source_type: internal_concept_reference
 fact_class: project_conceptual_model
 ```
 
-It may guide reasoning but must not prove platform capability or bypass the EV4 pipeline.
-
-### TUYA Evidence Transition Rule
-
-```text
-provisional + stronger supporting evidence → supported / partially supported
-provisional + still incomplete evidence → stays provisional
-provisional + direct conflicting evidence → CONTRADICTED_EVIDENCE
-unknown by itself ≠ contradiction
-```
+TUYA may guide vocabulary, thinking order, normal-flow discipline, relative visual stage logic, responsive caution, design-system mindset, and DOM/audit checklisting. It may not prove platform capability, raise Stage 5 scores directly, break Stage 7 ties, or override official docs/export evidence.
 
 ---
 
@@ -371,18 +387,16 @@ Not validated by E2E-001:
 Preferred next action:
 
 ```text
-Harden references/ELEMENTOR_KNOWLEDGE_BASE_RAG_STRATEGY.md from draft_active_v0.3.0 to active_v1.0.0.
+Harden knowledge/TUYA_ELEMENTOR_V4_CONCEPTS.md from active_reference v0.2.0 to active_v1.0.0.
 ```
 
-The next run should align the RAG strategy with `stages/02_RESEARCH.md` by adding or tightening:
+The next run should align TUYA with RAG Strategy v1.0.0 and `stages/02_RESEARCH.md` by adding or tightening:
 
-- versioned source-access policy;
-- `/research` as the source-pinning stage;
-- downstream permission matrix using the current pipeline numbering;
-- official source freshness rules;
-- export evidence / EDIS boundaries;
-- conflict lifecycle;
-- forbidden leakage probes;
-- pass criteria for active contract status;
-- repair routes;
+- `source_type: internal_concept_reference` naming consistency;
+- `fact_class: project_conceptual_model` enforcement;
+- TUYA-specific downstream permission matrix;
+- provisional/unknown/contradicted evidence lifecycle;
+- forbidden capability/scoring/recommendation leakage probes;
+- repair routes for TUYA misuse;
+- self-audit;
 - debug trace and Stage Anchor handoff references.
