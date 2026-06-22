@@ -1,7 +1,7 @@
 # Project Source Manifest — EV4 Release Pack v1
 
-Status: release_candidate_for_controlled_use_with_final_output_ux_addons
-Version: 1.0.1
+Status: release_candidate_for_controlled_use_with_final_output_ux_case_memory_and_builder_feed_addons
+Version: 1.0.3
 Date: 2026-06-22
 
 ---
@@ -18,6 +18,8 @@ release/EV4_PROJECT_RELEASE_PACK_v1/EV4_FIRST_RUN_GUIDE.md
 release/EV4_PROJECT_RELEASE_PACK_v1/PROJECT_SOURCE_MANIFEST.md
 release/EV4_PROJECT_RELEASE_PACK_v1/EV4_RUN_COPILOT_INSTRUCTIONS.md
 release/EV4_PROJECT_RELEASE_PACK_v1/EV4_FINAL_OUTPUT_UX_PATCH.md
+release/EV4_PROJECT_RELEASE_PACK_v1/EV4_CASE_MEMORY_PROTOCOL.md
+release/EV4_PROJECT_RELEASE_PACK_v1/EV4_BUILDER_COMPANION_FEED_PROTOCOL.md
 ```
 
 ---
@@ -32,15 +34,48 @@ release/EV4_PROJECT_RELEASE_PACK_v1/EV4_FINAL_OUTPUT_UX_PATCH.md
 Purpose:
 
 ```text
-EV4_RUN_COPILOT_INSTRUCTIONS.md
+EV4_RUN_COPILOT_INSTRUCTIONS.md:
 - Companion reviewer for stage outputs.
 - Checks whether the latest stage obeyed EV4 contracts.
 - Gives the user the exact next prompt.
 
-EV4_FINAL_OUTPUT_UX_PATCH.md
+EV4_FINAL_OUTPUT_UX_PATCH.md:
 - Adds PIPELINE RESULT SNAPSHOT to final /handoff-export.
 - Adds a simple teacher-style Persian explanation for the user.
 - Preserves all flags, unknowns, and production-readiness boundaries.
+```
+
+---
+
+## Case Memory Add-on File
+
+```text
+release/EV4_PROJECT_RELEASE_PACK_v1/EV4_CASE_MEMORY_PROTOCOL.md
+```
+
+Purpose:
+
+```text
+Adds optional post-build learning after /handoff-export.
+Turns Elementor build feedback into audited case memory.
+Defines validation levels.
+Blocks case memory from being used by /decompose to invent visual facts.
+```
+
+---
+
+## Builder Companion Feed Add-on File
+
+```text
+release/EV4_PROJECT_RELEASE_PACK_v1/EV4_BUILDER_COMPANION_FEED_PROTOCOL.md
+```
+
+Purpose:
+
+```text
+Creates a copy-ready feed package for a separate interactive builder chat/model after /handoff-export.
+Defines required builder-facing outputs such as Class Creation & Application Map, Structure Panel Naming Checklist, Builder Step-by-Step Checklist, Widget Mapping Table, Editable Content Map, Asset Replacement Map, Scoped CSS Need Map, and Responsive QA Checklist.
+Preserves the audited handoff as source of truth and blocks redesign, new scoring, hidden assumptions, and production-readiness claims.
 ```
 
 ---
@@ -79,6 +114,7 @@ rubrics/ELEMENTOR_V4_ARCHITECTURE_RUBRIC_v1.md
 examples/decomposition/README.md
 examples/decomposition/EXAMPLE_AUTHORING_STANDARD.md
 examples/scoring/README.md
+cases/README.md
 ```
 
 ---
@@ -94,10 +130,19 @@ validation_state:
     status: pass_with_minor_flags
     evidence: experiments/E2E-002-screenshot-validation-report.md
   final_output_ux_addons:
-    status: added_v1.0.0
+    status: added_v1.0.1
     evidence:
       - release/EV4_PROJECT_RELEASE_PACK_v1/EV4_RUN_COPILOT_INSTRUCTIONS.md
       - release/EV4_PROJECT_RELEASE_PACK_v1/EV4_FINAL_OUTPUT_UX_PATCH.md
+  case_memory_protocol:
+    status: added_v1.0.0
+    evidence:
+      - release/EV4_PROJECT_RELEASE_PACK_v1/EV4_CASE_MEMORY_PROTOCOL.md
+      - cases/README.md
+  builder_companion_feed_protocol:
+    status: added_v1.0.0
+    evidence:
+      - release/EV4_PROJECT_RELEASE_PACK_v1/EV4_BUILDER_COMPANION_FEED_PROTOCOL.md
   live_elementor_rendering:
     status: not_validated
   real_elementor_export_json_or_EDIS:
@@ -120,11 +165,13 @@ EV4_EXAMPLES_AND_CALIBRATION_BUNDLE.md
 EV4_FIRST_RUN_GUIDE.md
 ```
 
-Recommended UX add-ons:
+Recommended add-ons:
 
 ```text
 EV4_RUN_COPILOT_INSTRUCTIONS.md
 EV4_FINAL_OUTPUT_UX_PATCH.md
+EV4_CASE_MEMORY_PROTOCOL.md
+EV4_BUILDER_COMPANION_FEED_PROTOCOL.md
 ```
 
 Optional upload:
@@ -138,7 +185,7 @@ README.md
 
 ## File-limit note
 
-If the ChatGPT Project file limit is reached, prefer uploading the UX add-ons over optional files.
+If the ChatGPT Project file limit is reached, prefer uploading active add-ons over optional files.
 
 Suggested replacement order:
 
@@ -148,6 +195,8 @@ Suggested replacement order:
 3. Keep the five core release files.
 4. Add EV4_RUN_COPILOT_INSTRUCTIONS.md if you want a companion review chat.
 5. Add EV4_FINAL_OUTPUT_UX_PATCH.md if you want clearer final outputs.
+6. Add EV4_CASE_MEMORY_PROTOCOL.md if you want post-build learning.
+7. Add EV4_BUILDER_COMPANION_FEED_PROTOCOL.md if you want interactive step-by-step builder execution in another chat/model.
 ```
 
 ---
