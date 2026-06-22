@@ -104,10 +104,11 @@ If `STATUS.md` later declares a newer status or schema, the newer `STATUS.md` va
 When Stage 8 emits `NEXT STAGE ANCHOR — /final-audit`, use this policy:
 
 ```yaml
-stage_8_next_anchor_alignment:
-  target_stage: /final-audit
-  target_stage_hardening_status: confirmed_hardened_v1.0.0_or_newer_from_STATUS
-  payload_schema_in: ev4-implementation-payload@1.0.0
+  applies_to:
+    - stages/08_IMPLEMENTATION.md
+    - stages/09_FINAL_AUDIT.md
+    - stages/10_HANDOFF_EXPORT.md
+    - STATUS.md
   payload_schema_out: ev4-final-audit-payload@1.0.0_or_newer_from_STATUS
   status_source: latest STATUS.md active stage table
   fallback_if_status_unknown: stop_and_inspect_STATUS
